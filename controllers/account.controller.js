@@ -1,5 +1,4 @@
 const {Account} = require("../models");
-const randToken = require('rand-token');
 const dotenv = require("dotenv")
 const bcrypt = require('bcrypt');
 
