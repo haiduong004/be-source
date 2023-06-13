@@ -1,6 +1,4 @@
 const {Account} = require("../models");
-const randToken = require('rand-token');
-const dotenv = require("dotenv")
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 
@@ -8,6 +6,7 @@ const Register = async(req,res) => {
     try {
         const {userName,fullName,email,password} = req.body;
 
+        //kiểm tra tài khoản có tồn tại
         const user = await Account.findOne({ where: { userName } });
         const hashPassword = bcrypt.hashSync(req.body.password, SALT_ROUNDS = 10);
         if (!user) {
